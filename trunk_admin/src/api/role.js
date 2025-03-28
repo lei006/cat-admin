@@ -7,9 +7,9 @@ export default {
     update: data => request.patch(`/role/${data.id}`, data),
     delete: id => request.delete(`/role/${id}`),
   
-    getAllPermissionTree: () => request.get('/permission/tree'),
-    getAllUsers: (params = {}) => request.get('/user', { params }),
+    // 获取角色权限
+    getRolePermissions: () => request.get('/role/permissions/tree'),
+    getAllRoles: () => request.get('/role?enable=1'),
     addRoleUsers: (roleId, data) => request.patch(`/role/users/add/${roleId}`, data),
     removeRoleUsers: (roleId, data) => request.patch(`/role/users/remove/${roleId}`, data),
   }
-  

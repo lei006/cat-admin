@@ -116,6 +116,7 @@ import { withPermission } from '@/directives'
 import { formatDateTime } from '@/utils'
 import { NAvatar, NButton, NSwitch, NTag } from 'naive-ui'
 import apiUser from '@/api/user'
+import apiRole from '@/api/role'
 
 defineOptions({ name: 'UserMgt' })
 
@@ -132,7 +133,7 @@ const genders = [
   { label: '女', value: 2 },
 ]
 const roles = ref([])
-apiUser.getAllRoles().then(({ data = [] }) => (roles.value = data))
+apiRole.getAllRoles().then(({ data = [] }) => (roles.value = data))
 
 const {
   modalRef,

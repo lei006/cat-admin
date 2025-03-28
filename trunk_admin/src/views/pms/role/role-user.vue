@@ -36,7 +36,7 @@
       v-model:query-items="queryItems"
       :scroll-x="1200"
       :columns="columns"
-      :get-data="apiRole.getAllUsers"
+      :get-data="apiUser.getAllUsers"
       @on-checked="onChecked"
     >
       <MeQueryItem label="用户名" :label-width="50">
@@ -72,6 +72,7 @@ import { formatDateTime } from '@/utils'
 import { NAvatar, NButton, NSwitch, NTag } from 'naive-ui'
 import { h } from 'vue'
 import apiRole from '@/api/role.js'
+import apiUser from '@/api/user.js'
 
 defineOptions({ name: 'RoleUser' })
 const route = useRoute()

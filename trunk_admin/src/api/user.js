@@ -7,9 +7,11 @@ export default {
     delete: id => request.delete(`/user/${id}`),
     resetPwd: (id, data) => request.patch(`/user/password/reset/${id}`, data),
   
-    getAllRoles: () => request.get('/role?enable=1'),
 
-    changePassword: data => request.post('/auth/password', data),
+    // 取得当前用户信息
+    getUser: () => request.get('/user/detail'),
+    getAllUsers: (params = {}) => request.get('/user', { params }),
+
     updateProfile: data => request.patch(`/user/profile/${data.id}`, data),
 
   }

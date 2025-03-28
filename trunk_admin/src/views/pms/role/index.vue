@@ -99,6 +99,7 @@ import { MeCrud, MeModal, MeQueryItem } from '@/components'
 import { useCrud } from '@/composables'
 import { NButton, NSwitch } from 'naive-ui'
 import apiRole from '@/api/role.js'
+import apiRermission from '@/api/permission.js'
 
 defineOptions({ name: 'RoleMgt' })
 
@@ -216,5 +217,5 @@ async function handleEnable(row) {
 }
 
 const permissionTree = ref([])
-apiRole.getAllPermissionTree().then(({ data = [] }) => (permissionTree.value = data))
+apiRermission.getAllPermissionTree().then(({ data = [] }) => (permissionTree.value = data))
 </script>

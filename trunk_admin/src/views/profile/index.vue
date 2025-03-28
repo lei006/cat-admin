@@ -110,6 +110,7 @@ import { useForm, useModal } from '@/composables'
 import { useUserStore } from '@/store'
 import { getUserInfo } from '@/store/helper'
 import apiUser from './api/user'
+import apiAuth from './api/auth'
 
 const userStore = useUserStore()
 const required = {
@@ -123,7 +124,7 @@ const [pwdFormRef, pwdForm, pwdValidation] = useForm()
 
 async function handlePwdSave() {
   await pwdValidation()
-  await apiUser.changePassword(pwdForm.value)
+  await apiAuth.changePassword(pwdForm.value)
   $message.success('密码修改成功')
   refreshUserInfo()
 }
