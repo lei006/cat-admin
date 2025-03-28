@@ -1,0 +1,73 @@
+captcha:
+    enable: false
+    key-long: 4
+    img-width: 200
+    img-height: 100
+    open-captcha: 0
+    open-captcha-timeout: 3600
+jwt:
+    signing-key: 73ed34b5-4e06-45d6-969a-f1e4835a3f5a
+    expires-time: 7d
+    buffer-time: 1d
+    issuer: qmPlus
+mysql:
+    prefix: ""
+    port: "3306"
+    config: charset=utf8mb4&parseTime=True&loc=Local
+    db-name: report
+    username: root
+    password: wLei6700413@
+    path: 120.26.171.169
+    engine: ""
+    log-mode: error
+    max-idle-conns: 10
+    max-open-conns: 100
+    singular: false
+    log-zap: false
+sqlite:
+    prefix: ""
+    port: ""
+    config: ""
+    db-name: ""
+    username: ""
+    password: ""
+    path: ""
+    engine: ""
+    log-mode: ""
+    max-idle-conns: 10
+    max-open-conns: 100
+    singular: false
+    log-zap: false
+logger:
+    path: ""
+    save_day: 3
+system:
+    app-name: webreport1
+    app-desc: 网页-报告
+    server: false
+    db-type: mysql
+    oss-type: local
+    router-prefix: "/api"
+    addr: 8081
+    iplimit-count: 15000
+    iplimit-time: 3600
+    use-multipoint: false
+    use-redis: false
+    use-mongo: false
+zap:
+    level: info
+    prefix: '[mapp-srv]'
+    format: console
+    director: log
+    encode-level: LowercaseColorLevelEncoder
+    stacktrace-key: stacktrace
+    max-age: 0
+    show-line: true
+    log-in-console: true
+api:
+    addr: ":8081"
+    debug: false
+    upload-print-path: ".\\static\\layout_uploads"
+    admin-password: wLei6700413@
+    online-max-num: 2
+
