@@ -11,8 +11,8 @@ import (
 	"sync"
 	"time"
 
-	"cat-admin/controller"
-	"cat-admin/model"
+	"go-admin/controller"
+	"go-admin/model"
 
 	"github.com/gin-gonic/gin"
 	"github.com/sohaha/zlsgo/zlog"

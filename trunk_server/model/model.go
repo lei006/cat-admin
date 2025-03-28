@@ -1,8 +1,8 @@
 package model
 
 import (
-	"cat-admin/config"
 	"errors"
+	"go-admin/config"
 	"log"
 	"os"
 	"time"

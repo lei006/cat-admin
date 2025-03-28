@@ -1,4 +1,4 @@
-module cat-admin
+module go-admin
 
 go 1.22.4
 

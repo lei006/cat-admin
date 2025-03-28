@@ -1,7 +1,7 @@
 package logger
 
 import (
-	"cat-admin/config"
+	"go-admin/config"
 
 	"github.com/sohaha/zlsgo/zlog"
 )

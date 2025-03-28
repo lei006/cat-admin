@@ -1,8 +1,8 @@
 package controller
 
 import (
-	"cat-admin/model"
-	"cat-admin/utils"
+	"go-admin/model"
+	"go-admin/utils"
 
 	"github.com/gin-gonic/gin"
 	"github.com/sohaha/zlsgo/zlog"

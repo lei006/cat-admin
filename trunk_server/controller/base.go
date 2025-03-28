@@ -1,8 +1,8 @@
 package controller
 
 import (
-	"cat-admin/config"
-	"cat-admin/utils"
+	"go-admin/config"
+	"go-admin/utils"
 	"net/http"
 	"time"
 

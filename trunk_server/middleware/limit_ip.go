@@ -6,8 +6,8 @@ import (
 
 	"go.uber.org/zap"
 
-	"cat-admin/config"
-	"cat-admin/controller"
+	"go-admin/config"
+	"go-admin/controller"
 
 	"github.com/gin-gonic/gin"
 	"github.com/sohaha/zlsgo/zlog"

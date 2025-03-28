@@ -1,7 +1,7 @@
 package middleware
 
 import (
-	"cat-admin/config"
+	"go-admin/config"
 
 	"github.com/gin-gonic/gin"
 )

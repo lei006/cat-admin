@@ -1,7 +1,7 @@
 package router
 
 import (
-	"cat-admin/controller"
+	"go-admin/controller"
 
 	"github.com/gin-gonic/gin"
 )

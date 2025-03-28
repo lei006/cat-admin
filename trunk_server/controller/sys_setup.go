@@ -1,8 +1,8 @@
 package controller
 
 import (
-	"cat-admin/model"
 	"fmt"
+	"go-admin/model"
 	"io"
 
 	"github.com/gin-gonic/gin"

@@ -1,9 +1,9 @@
 package controller
 
 import (
-	"cat-admin/config"
-	"cat-admin/model"
-	"cat-admin/utils"
+	"go-admin/config"
+	"go-admin/model"
+	"go-admin/utils"
 
 	"github.com/gin-gonic/gin"
 	"github.com/mojocn/base64Captcha"

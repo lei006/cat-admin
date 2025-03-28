@@ -1,8 +1,8 @@
 package router
 
 import (
-	"cat-admin/config"
-	"cat-admin/middleware"
+	"go-admin/config"
+	"go-admin/middleware"
 	"net/http"
 
 	"github.com/gin-gonic/gin"

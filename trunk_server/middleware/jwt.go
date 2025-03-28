@@ -6,9 +6,9 @@ import (
 
 	"github.com/sohaha/zlsgo/zlog"
 
-	"cat-admin/config"
-	"cat-admin/controller"
-	"cat-admin/model"
+	"go-admin/config"
+	"go-admin/controller"
+	"go-admin/model"
 
 	"github.com/gin-gonic/gin"
 )

@@ -1,8 +1,8 @@
 package config
 
 import (
-	"cat-admin/utils"
 	"fmt"
+	"go-admin/utils"
 	"os"
 	"path/filepath"
 

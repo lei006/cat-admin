@@ -1,10 +1,10 @@
 package main
 
 import (
-	"cat-admin/config"
-	"cat-admin/logger"
-	"cat-admin/model"
-	"cat-admin/router"
+	"go-admin/config"
+	"go-admin/logger"
+	"go-admin/model"
+	"go-admin/router"
 	"os"
 
 	"github.com/gin-gonic/gin"
