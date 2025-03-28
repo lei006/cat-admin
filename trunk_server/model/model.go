@@ -106,9 +106,9 @@ func registerTables() {
 	zlog.Debug("model registerTables enter")
 
 	err := g_db.AutoMigrate(
-		//SysApi{},
+		SysOperatRecord{},
 		SysUser{},
-		AuthInfo{},
+		SysAuthInfo{},
 		SysSetup{},
 	)
 	if err != nil {
@@ -149,9 +149,9 @@ func (g *_gorm) Config(prefix string, singular bool) *gorm.Config {
 		logMode = &config.Config.Mysql
 		/*
 			case "pgsql":
-				logMode = &config.ReportCfg.Pgsql
+				logMode = &config.Config.Pgsql
 			case "oracle":
-				logMode = &config.ReportCfg.Oracle
+				logMode = &config.Config.Oracle
 		*/
 	default:
 		logMode = &config.Config.Mysql

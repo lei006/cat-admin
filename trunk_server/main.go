@@ -4,8 +4,10 @@ import (
 	"cat-admin/config"
 	"cat-admin/logger"
 	"cat-admin/model"
+	"cat-admin/router"
 	"os"
 
+	"github.com/gin-gonic/gin"
 	"github.com/lei006/go-daemon/daemontool"
 	"github.com/sohaha/zlsgo/zlog"
 )
@@ -68,6 +70,24 @@ func RunApp() {
 	err = model.OnInit()
 	if err != nil {
 		return
+	}
+	if !config.Config.Api.Debug {
+		gin.SetMode(gin.ReleaseMode)
+	}
+
+	engine := gin.Default()
+
+	// 加载-路由
+	err = router.LoadRouter(engine)
+	if err != nil {
+		return
+	}
+
+	addr := config.Config.Api.Addr
+	zlog.Info("WebServer Listen :" + addr)
+	err = engine.Run(addr)
+	if err != nil {
+		zlog.Debug("WebServer error :" + err.Error())
 	}
 
 }
