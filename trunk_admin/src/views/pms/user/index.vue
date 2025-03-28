@@ -20,7 +20,7 @@
       v-model:query-items="queryItems"
       :scroll-x="1200"
       :columns="columns"
-      :get-data="api.read"
+      :get-data="apiUser.read"
     >
       <MeQueryItem label="用户名" :label-width="50">
         <n-input
@@ -115,7 +115,7 @@ import { useCrud } from '@/composables'
 import { withPermission } from '@/directives'
 import { formatDateTime } from '@/utils'
 import { NAvatar, NButton, NSwitch, NTag } from 'naive-ui'
-import api from './api'
+import apiUser from '@/api/user'
 
 defineOptions({ name: 'UserMgt' })
 
@@ -132,7 +132,7 @@ const genders = [
   { label: '女', value: 2 },
 ]
 const roles = ref([])
-api.getAllRoles().then(({ data = [] }) => (roles.value = data))
+apiUser.getAllRoles().then(({ data = [] }) => (roles.value = data))
 
 const {
   modalRef,
@@ -146,9 +146,9 @@ const {
 } = useCrud({
   name: '用户',
   initForm: { enable: true },
-  doCreate: api.create,
-  doDelete: api.delete,
-  doUpdate: api.update,
+  doCreate: apiUser.create,
+  doDelete: apiUser.delete,
+  doUpdate: apiUser.update,
   refresh: () => $table.value?.handleSearch(),
 })
 
@@ -286,7 +286,7 @@ const columns = [
 async function handleEnable(row) {
   row.enableLoading = true
   try {
-    await api.update({ id: row.id, enable: !row.enable })
+    await apiUser.update({ id: row.id, enable: !row.enable })
     row.enableLoading = false
     $message.success('操作成功')
     $table.value?.handleSearch()
@@ -310,13 +310,13 @@ function handleOpenRolesSet(row) {
 function onSave() {
   if (modalAction.value === 'setRole') {
     return handleSave({
-      api: () => api.update(modalForm.value),
+      api: () => apiUser.update(modalForm.value),
       cb: () => $message.success('分配成功'),
     })
   }
   else if (modalAction.value === 'reset') {
     return handleSave({
-      api: () => api.resetPwd(modalForm.value.id, modalForm.value),
+      api: () => apiUser.resetPwd(modalForm.value.id, modalForm.value),
       cb: () => $message.success('密码重置成功'),
     })
   }

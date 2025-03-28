@@ -20,7 +20,7 @@
       v-model:query-items="queryItems"
       :scroll-x="1200"
       :columns="columns"
-      :get-data="api.read"
+      :get-data="apiRole.read"
     >
       <MeQueryItem label="角色名" :label-width="50">
         <n-input v-model:value="queryItems.name" type="text" placeholder="请输入角色名" clearable />
@@ -98,7 +98,7 @@
 import { MeCrud, MeModal, MeQueryItem } from '@/components'
 import { useCrud } from '@/composables'
 import { NButton, NSwitch } from 'naive-ui'
-import api from './api'
+import apiRole from '@/api/role.js'
 
 defineOptions({ name: 'RoleMgt' })
 
@@ -115,9 +115,9 @@ onMounted(() => {
 const { modalRef, modalFormRef, modalAction, modalForm, handleAdd, handleDelete, handleEdit }
   = useCrud({
     name: '角色',
-    doCreate: api.create,
-    doDelete: api.delete,
-    doUpdate: api.update,
+    doCreate: apiRole.create,
+    doDelete: apiRole.delete,
+    doUpdate: apiRole.update,
     initForm: { enable: true },
     refresh: (_, keepCurrentPage) => $table.value?.handleSearch(keepCurrentPage),
   })
@@ -204,7 +204,7 @@ const columns = [
 async function handleEnable(row) {
   row.enableLoading = true
   try {
-    await api.update({ id: row.id, enable: !row.enable })
+    await apiRole.update({ id: row.id, enable: !row.enable })
     row.enableLoading = false
     $message.success('操作成功')
     $table.value?.handleSearch()
@@ -216,5 +216,5 @@ async function handleEnable(row) {
 }
 
 const permissionTree = ref([])
-api.getAllPermissionTree().then(({ data = [] }) => (permissionTree.value = data))
+apiRole.getAllPermissionTree().then(({ data = [] }) => (permissionTree.value = data))
 </script>

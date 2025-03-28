@@ -163,7 +163,7 @@ import { MeModal } from '@/components'
 import { useForm, useModal } from '@/composables'
 import icons from 'isme:icons'
 import pagePathes from 'isme:page-pathes'
-import api from '../api'
+import apiPermission from '@/api/permission'
 import QuestionLabel from './QuestionLabel.vue'
 
 const props = defineProps({
@@ -218,11 +218,11 @@ async function onSave() {
     if (!modalForm.value.parentId)
       modalForm.value.parentId = null
     if (modalAction.value === 'add') {
-      const res = await api.addPermission(modalForm.value)
+      const res = await apiPermission.addPermission(modalForm.value)
       newFormData = res.data
     }
     else if (modalAction.value === 'edit') {
-      await api.savePermission(modalForm.value.id, modalForm.value)
+      await apiPermission.savePermission(modalForm.value.id, modalForm.value)
     }
     okLoading.value = false
     $message.success('保存成功')

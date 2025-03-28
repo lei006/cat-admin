@@ -6,7 +6,7 @@
  * Copyright © 2023 Ronnie Zhang(大脸怪) | https://isme.top
  **********************************/
 
-import api from '@/api'
+import apiAuth from '@/api/auth'
 import { useAuthStore, usePermissionStore, useUserStore } from '@/store'
 import { getPermissions, getUserInfo } from '@/store/helper'
 
@@ -48,7 +48,7 @@ export function createPermissionGuard(router) {
       return true
 
     // 判断是无权限还是404
-    const { data: hasMenu } = await api.validateMenuPath(to.path)
+    const { data: hasMenu } = await apiAuth.validateMenuPath(to.path)
     return hasMenu
       ? { name: '403', query: { path: to.fullPath }, state: { from: 'permission-guard' } }
       : { name: '404', query: { path: to.fullPath } }

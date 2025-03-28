@@ -80,7 +80,7 @@
             ref="$table"
             :columns="btnsColumns"
             :scroll-x="-1"
-            :get-data="api.getButtons"
+            :get-data="apiPermission.getButtons"
             :query-items="{ parentId: currentMenu.id }"
           />
         </template>
@@ -94,7 +94,7 @@
 <script setup>
 import { MeCrud } from '@/components'
 import { NButton, NSwitch } from 'naive-ui'
-import api from './api'
+import apiPermission from '@/api/permission'
 import MenuTree from './components/MenuTree.vue'
 import ResAddOrEdit from './components/ResAddOrEdit.vue'
 
@@ -108,7 +108,7 @@ async function initData(data) {
     return
   }
   treeLoading.value = true
-  const res = await api.getMenuTree()
+  const res = await apiPermission.getMenuTree()
   treeData.value = res?.data || []
   treeLoading.value = false
 
@@ -225,7 +225,7 @@ function handleDeleteBtn(id) {
     async onPositiveClick() {
       try {
         d.loading = true
-        await api.deletePermission(id)
+        await apiPermission.deletePermission(id)
         $message.success('删除成功')
         $table.value.handleSearch()
         d.loading = false
@@ -241,7 +241,7 @@ function handleDeleteBtn(id) {
 async function handleEnable(item) {
   try {
     item.enableLoading = true
-    await api.savePermission(item.id, {
+    await apiPermission.savePermission(item.id, {
       enable: !item.enable,
     })
     $message.success('操作成功')

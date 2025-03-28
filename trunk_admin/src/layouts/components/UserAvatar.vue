@@ -21,7 +21,7 @@
 </template>
 
 <script setup>
-import api from '@/api'
+import apiAuth from '@/api/auth.js'
 import { RoleSelect } from '@/layouts/components'
 import { useAuthStore, usePermissionStore, useUserStore } from '@/store'
 
@@ -70,7 +70,7 @@ function handleSelect(key) {
         content: '确认退出？',
         async confirm() {
           try {
-            await api.logout()
+            await apiAuth.logout()
           }
           catch (error) {
             console.error(error)

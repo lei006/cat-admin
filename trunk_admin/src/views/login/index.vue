@@ -104,7 +104,7 @@
 import { useAuthStore } from '@/store'
 import { lStorage, throttle } from '@/utils'
 import { useStorage } from '@vueuse/core'
-import api from './api'
+import apiAuth from '@/api/auth.js'
 
 const authStore = useAuthStore()
 const router = useRouter()
@@ -145,7 +145,7 @@ async function handleLogin(isQuick) {
   try {
     loading.value = true
     $message.loading('正在验证，请稍后...', { key: 'login' })
-    const { data } = await api.login({ username, password: password.toString(), captcha, isQuick })
+    const { data } = await apiAuth.login({ username, password: password.toString(), captcha, isQuick })
     if (isRemember.value) {
       lStorage.set('loginInfo', { username, password })
     }

@@ -43,7 +43,7 @@
 </template>
 
 <script setup>
-import api from '@/api'
+import apiAuth from '@/api/auth.js'
 import { MeModal } from '@/components'
 import { useModal } from '@/composables'
 import { useAuthStore, useUserStore } from '@/store'
@@ -64,7 +64,7 @@ function open(options) {
 async function setCurrentRole() {
   try {
     okLoading.value = true
-    const { data } = await api.switchCurrentRole(roleCode.value)
+    const { data } = await apiAuth.switchCurrentRole(roleCode.value)
     await authStore.switchCurrentRole(data)
     okLoading.value = false
     $message.success('切换成功')
@@ -78,7 +78,7 @@ async function setCurrentRole() {
 }
 
 async function logout() {
-  await api.logout()
+  await apiAuth.logout()
   authStore.logout()
   modalRef.value?.close()
   $message.success('已退出登录')

@@ -109,7 +109,7 @@ import { MeModal } from '@/components'
 import { useForm, useModal } from '@/composables'
 import { useUserStore } from '@/store'
 import { getUserInfo } from '@/store/helper'
-import api from './api'
+import apiUser from './api/user'
 
 const userStore = useUserStore()
 const required = {
@@ -123,7 +123,7 @@ const [pwdFormRef, pwdForm, pwdValidation] = useForm()
 
 async function handlePwdSave() {
   await pwdValidation()
-  await api.changePassword(pwdForm.value)
+  await apiUser.changePassword(pwdForm.value)
   $message.success('密码修改成功')
   refreshUserInfo()
 }
@@ -135,7 +135,7 @@ async function handleAvatarSave() {
     $message.error('请输入头像地址')
     return false
   }
-  await api.updateProfile({ id: userStore.userId, avatar: newAvatar.value })
+  await apiUser.updateProfile({ id: userStore.userId, avatar: newAvatar.value })
   $message.success('头像修改成功')
   refreshUserInfo()
 }
@@ -155,7 +155,7 @@ const [profileFormRef, profileForm, profileValidation] = useForm({
 })
 async function handleProfileSave() {
   await profileValidation()
-  await api.updateProfile(profileForm.value)
+  await apiUser.updateProfile(profileForm.value)
   $message.success('资料修改成功')
   refreshUserInfo()
 }
