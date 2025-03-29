@@ -9,6 +9,7 @@ export default {
   savePermission: (id, data) => request.patch(`/permission/${id}`, data),
   deletePermission: id => request.delete(`permission/${id}`),
   getAllPermissionTree: () => request.get('/permission/tree'),
+  
   // 验证菜单路径
   validateMenuPath: path => request.get(`/permission/menu/validate?path=${path}`),  
 }

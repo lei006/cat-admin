@@ -26,6 +26,7 @@ export async function getPermissions() {
   let asyncPermissions = []
   try {
     const res = await apiPermission.getAllPermissionTree()
+    console.log(res)
     asyncPermissions = res?.data || []
   }
   catch (error) {
