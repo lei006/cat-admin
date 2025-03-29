@@ -8,7 +8,6 @@ export default {
     delete: id => request.delete(`/role/${id}`),
   
     // 获取角色权限
-    getRolePermissions: () => request.get('/role/permissions/tree'),
     getAllRoles: () => request.get('/role?enable=1'),
     addRoleUsers: (roleId, data) => request.patch(`/role/users/add/${roleId}`, data),
     removeRoleUsers: (roleId, data) => request.patch(`/role/users/remove/${roleId}`, data),

@@ -9,7 +9,6 @@ export default {
   
 
     // 取得当前用户信息
-    getUser: () => request.get('/user/detail'),
     getAllUsers: (params = {}) => request.get('/user', { params }),
 
     updateProfile: data => request.patch(`/user/profile/${data.id}`, data),

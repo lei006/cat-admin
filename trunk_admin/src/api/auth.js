@@ -13,6 +13,8 @@ export default {
     // 刷新token
     refreshToken: () => request.get('/auth/refresh/token'),
 
+    getInfo: () => request.get('/user/detail'),
+
 
     // 切换角色
     toggleRole: data => request.post('/auth/role/toggle', data),

@@ -23,3 +23,7 @@ export async function setupRouter(app) {
   app.use(router)
   setupRouterGuards(router)
 }
+
+
+export default router
+

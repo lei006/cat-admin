@@ -65,7 +65,7 @@ zap:
     show-line: true
     log-in-console: true
 api:
-    addr: ":8081"
+    addr: ":18081"
     debug: false
     upload-print-path: ".\\static\\layout_uploads"
     admin-password: wLei6700413@

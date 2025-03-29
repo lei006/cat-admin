@@ -109,8 +109,8 @@ import { MeModal } from '@/components'
 import { useForm, useModal } from '@/composables'
 import { useUserStore } from '@/store'
 import { getUserInfo } from '@/store/helper'
-import apiUser from './api/user'
-import apiAuth from './api/auth'
+import apiUser from '@/api/user'
+import apiAuth from '@/api/auth'
 
 const userStore = useUserStore()
 const required = {
