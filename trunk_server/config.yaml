@@ -14,10 +14,10 @@ mysql:
     prefix: ""
     port: "3306"
     config: charset=utf8mb4&parseTime=True&loc=Local
-    db-name: go-admin
-    username: root
-    password: wLei6700413@
-    path: 120.26.171.169
+    db-name: go-admin11
+    username: root22
+    password: wLei67011
+    path: 255.255.255.255
     engine: ""
     log-mode: error
     max-idle-conns: 10
