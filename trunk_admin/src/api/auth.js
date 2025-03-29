@@ -13,7 +13,7 @@ export default {
     // 刷新token
     refreshToken: () => request.get('/auth/refresh/token'),
 
-    getInfo: () => request.get('/user/detail'),
+    Info: () => request.get('/user/detail'),
 
 
     // 切换角色

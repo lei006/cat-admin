@@ -6,7 +6,7 @@ import apiPermission from '@/api/permission.js'
 import { basePermissions } from '@/settings'
 
 export async function getUserInfo() {
-  const res = await apiAuth.getInfo()
+  const res = await apiAuth.Info()
   console.log(res)
   const { id, username, profile, roles, currentRole } = res.data || {}
   return {
